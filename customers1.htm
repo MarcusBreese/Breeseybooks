@@ -46,9 +46,8 @@
 API, and then turns it into HTML table data and then
 appends it to the main page */
 
-$.getJSON("http://localhost:3000/", function (catalogue) {
+$.getJSON("/", function (catalogue) {
 var data = catalogue;
-
         var html = '';
         $.each(data, function(index, data) {
             html+= '<tr>';
@@ -59,12 +58,10 @@ var data = catalogue;
             html+= '<td>'+data.publisher.PublisherName+'</td>';
             html+= '<td>'+(data.publicationDate || "N/A")+'</td>';
             html+= '</tr>';  });
-    $('#products').html(html);  });
-
-
+    $('#products').html(html);
+    });
 
 /*This function powers the on page dynamic search */
-
 function dynamicSearch() {
   var input, filter, table, tr, td, i;
   input = document.getElementById("searchBar");
