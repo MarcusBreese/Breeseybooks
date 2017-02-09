@@ -33,13 +33,17 @@ fs.readFile('data.json', 'utf8', function(err,elsv) {
 //This enables the API to serve CSS, JS, etc
 app.use(express.static('public'));
 
+
 //This middleware loads the customers1.htm file,
 app.get('/index', function (req, res) {
   res.sendFile(__dirname + '/customers1.htm');
 });
 
-//
-  app.listen(3000, function () {
-     console.log('Example app listening on port 3000!')
+
+
+
+
+  app.listen(process.env.PORT || 3000, function () {
+     console.log('Example app listening on port 8081!')
   })
 })
